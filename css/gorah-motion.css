@@ -40,48 +40,15 @@ a.link-wrapper:hover .p-works { opacity: .55; }
 .link-p { transition: opacity .3s ease; }
 .link-p:hover { opacity: .55; }
 
-/* ---------- Marquee servizi ---------- */
-.gr-marquee {
-  overflow: hidden;
-  background-color: #231f20;
-  border-top: 1px solid rgba(173, 167, 143, .28);
-  border-bottom: 1px solid rgba(173, 167, 143, .28);
-  padding: clamp(1.1rem, 2.2vw, 1.8rem) 0;
+/* ---------- Ordine tipografico dei testi ---------- */
+.w-richtext {
+  max-width: 62ch;
+  line-height: 1.6;
 }
-.gr-marquee__track {
-  display: flex;
-  width: max-content;
-  animation: gr-scroll 32s linear infinite;
-}
-.gr-marquee:hover .gr-marquee__track { animation-play-state: paused; }
-.gr-marquee__seq {
-  display: flex;
-  align-items: center;
-  gap: clamp(1.4rem, 3vw, 2.8rem);
-  padding-right: clamp(1.4rem, 3vw, 2.8rem);
-}
-.gr-marquee__item {
-  font-family: Sora, sans-serif;
-  font-weight: 800;
-  font-size: clamp(1.6rem, 3.4vw, 3rem);
-  line-height: 1.15;
-  text-transform: uppercase;
-  letter-spacing: .02em;
-  color: #faf9f6;
-  white-space: nowrap;
-}
-.gr-marquee__item--outline {
-  color: transparent;
-  -webkit-text-stroke: 1px #ada78f;
-}
-.gr-marquee__dot {
-  width: .55em;
-  height: .55em;
-  border-radius: 50%;
-  background-color: #ada78f;
-  flex: none;
-}
-@keyframes gr-scroll { to { transform: translateX(-50%); } }
+.w-richtext p { margin-bottom: .95em; }
+.w-richtext p:last-child { margin-bottom: 0; }
+.services-text { line-height: 1.6; }
+.p-works { line-height: 1.45; }
 
 /* ---------- Form contatti ---------- */
 .contact-form .text-field,
@@ -252,7 +219,6 @@ a.link-wrapper:hover .p-works { opacity: .55; }
 /* ---------- Riduzione del movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
   .gr-reveal { opacity: 1; transform: none; transition: none; }
-  .gr-marquee__track { animation: none; }
   .image-thumbnail .image-cover-full,
   .grid-item .header-works,
   .contact-form .w-button { transition: none; }

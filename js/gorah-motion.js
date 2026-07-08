@@ -13,8 +13,7 @@
     '.work-image-wrapper',
     '.text-line',
     '.container-50w',
-    '.image-wrapper-hero-about',
-    '.gr-marquee'
+    '.image-wrapper-hero-about'
   ];
 
   var candidates = document.querySelectorAll(SELECTORS.join(','));
