@@ -250,6 +250,21 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   color: rgba(250, 249, 246, .55);
 }
 
+/* ---------- Foto nelle pagine cliente ---------- */
+.gr-svc__photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(480px, 100%), 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(3rem, 8vh, 6rem);
+  background-color: #231f20;
+}
+.gr-svc__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
 /* ---------- Riduzione del movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
   .gr-reveal { opacity: 1; transform: none; transition: none; }
