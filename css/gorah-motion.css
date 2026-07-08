@@ -265,6 +265,59 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   aspect-ratio: 4 / 3;
 }
 
+/* ---------- Tile hero (pagine cliente senza shooting) ---------- */
+.gr-tile--hero {
+  min-height: clamp(320px, 55vh, 560px);
+  border: none;
+  border-bottom: 1px solid rgba(173, 167, 143, .28);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.gr-tile--hero .gr-tile__name {
+  font-size: clamp(2.6rem, 8vw, 6.5rem);
+}
+.grid-item:hover .gr-tile--hero { transform: none; }
+
+/* ---------- Footer ordinato e coerente ---------- */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem 2.5rem;
+  padding: 2.6rem clamp(1.2rem, 5vw, 4rem) 1.6rem;
+  border-top: 1px solid rgba(173, 167, 143, .28);
+}
+.logo-footer {
+  display: block;
+  width: auto;
+  height: 30px;
+  flex: none;
+}
+.logo-footer img { height: 100%; width: auto; }
+.link-section {
+  flex-flow: row;
+  gap: 1.8rem;
+  align-items: center;
+}
+.footer .flex-horizontal.gap-xs { align-items: center; }
+.icon-footer { display: block; }
+.copyrights {
+  flex-basis: 100%;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(173, 167, 143, .14);
+}
+.copyrights .white-p.small { opacity: .5; margin: 0; }
+@media (max-width: 767px) {
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4rem;
+  }
+  .copyrights { padding-top: 1rem; }
+}
+
 /* ---------- Riduzione del movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
   .gr-reveal { opacity: 1; transform: none; transition: none; }
