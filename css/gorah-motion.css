@@ -1,0 +1,259 @@
+/* ============================================================
+   GORAH — layer di motion e rifinitura
+   Additivo: non tocca gorah.webflow.min.css.
+   Solo transform/opacity; rispetta prefers-reduced-motion.
+   ============================================================ */
+
+/* ---------- Reveal on scroll (classi aggiunte da gorah-motion.js) ---------- */
+.gr-reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity .7s cubic-bezier(.22, 1, .36, 1),
+    transform .7s cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity, transform;
+}
+.gr-reveal.gr-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Hover card lavori ---------- */
+.image-thumbnail { overflow: hidden; }
+.image-thumbnail .image-cover-full {
+  transition: transform 1.1s cubic-bezier(.16, 1, .3, 1);
+}
+.grid-item:hover .image-cover-full { transform: scale(1.045); }
+
+.grid-item .header-works {
+  transition: transform .45s cubic-bezier(.22, 1, .36, 1);
+}
+.grid-item:hover .header-works { transform: translateX(10px); }
+.grid-item h6 { transition: opacity .45s ease; }
+.grid-item:hover h6 { opacity: .6; }
+
+/* tag servizio dentro le card e liste: shift leggero */
+a.link-wrapper .p-works { transition: opacity .35s ease; }
+a.link-wrapper:hover .p-works { opacity: .55; }
+
+/* link footer */
+.link-p { transition: opacity .3s ease; }
+.link-p:hover { opacity: .55; }
+
+/* ---------- Marquee servizi ---------- */
+.gr-marquee {
+  overflow: hidden;
+  background-color: #231f20;
+  border-top: 1px solid rgba(173, 167, 143, .28);
+  border-bottom: 1px solid rgba(173, 167, 143, .28);
+  padding: clamp(1.1rem, 2.2vw, 1.8rem) 0;
+}
+.gr-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: gr-scroll 32s linear infinite;
+}
+.gr-marquee:hover .gr-marquee__track { animation-play-state: paused; }
+.gr-marquee__seq {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.4rem, 3vw, 2.8rem);
+  padding-right: clamp(1.4rem, 3vw, 2.8rem);
+}
+.gr-marquee__item {
+  font-family: Sora, sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3.4vw, 3rem);
+  line-height: 1.15;
+  text-transform: uppercase;
+  letter-spacing: .02em;
+  color: #faf9f6;
+  white-space: nowrap;
+}
+.gr-marquee__item--outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #ada78f;
+}
+.gr-marquee__dot {
+  width: .55em;
+  height: .55em;
+  border-radius: 50%;
+  background-color: #ada78f;
+  flex: none;
+}
+@keyframes gr-scroll { to { transform: translateX(-50%); } }
+
+/* ---------- Form contatti ---------- */
+.contact-form .text-field,
+.contact-form .text-area {
+  font-size: 1.05rem;
+  padding: .95rem .1rem;
+  background-color: transparent;
+  border-bottom-color: rgba(35, 31, 32, .4);
+  transition: border-color .3s ease, box-shadow .3s ease;
+}
+.contact-form .text-field:focus,
+.contact-form .text-area:focus {
+  border-bottom-color: #231f20;
+  box-shadow: 0 1px 0 0 #231f20;
+}
+.contact-form .w-button {
+  transition: background-color .3s ease, color .3s ease, transform .3s cubic-bezier(.22, 1, .36, 1);
+}
+.contact-form .w-button:hover {
+  background-color: #231f20;
+  color: #ada78f;
+  transform: translateY(-2px);
+}
+
+/* ---------- Pagina Grazie ---------- */
+.gr-thanks {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background-color: #231f20;
+  font-family: Sora, sans-serif;
+  color: #faf9f6;
+}
+.gr-thanks__header {
+  padding: 2rem clamp(1.2rem, 4vw, 3rem);
+}
+.gr-thanks__header img { height: 34px; }
+.gr-thanks__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 clamp(1.2rem, 6vw, 6rem) 4rem;
+}
+.gr-thanks__title {
+  font-weight: 800;
+  font-size: clamp(3.4rem, 13vw, 11rem);
+  line-height: .95;
+  text-transform: uppercase;
+  margin: 0 0 1.6rem;
+  color: #faf9f6;
+}
+.gr-thanks__title span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #ada78f;
+}
+.gr-thanks__text {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 300;
+  max-width: 48ch;
+  margin: 0 0 2.6rem;
+  color: rgba(250, 249, 246, .82);
+}
+.gr-thanks__back {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #ada78f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(173, 167, 143, .5);
+  padding-bottom: .35rem;
+  transition: opacity .3s ease;
+  width: fit-content;
+}
+.gr-thanks__back:hover { opacity: .6; }
+
+/* ---------- Pagine servizio ---------- */
+.gr-svc { background-color: #231f20; font-family: Sora, sans-serif; }
+.gr-svc__hero {
+  background-color: #ada78f;
+  padding: clamp(7rem, 16vh, 11rem) clamp(1.2rem, 5vw, 4rem) clamp(2.6rem, 6vh, 4.5rem);
+}
+.gr-svc__kicker {
+  font-size: .85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: rgba(35, 31, 32, .65);
+  margin: 0 0 1rem;
+}
+.gr-svc__title {
+  font-weight: 800;
+  font-size: clamp(2.6rem, 8.5vw, 7rem);
+  line-height: .98;
+  text-transform: uppercase;
+  color: #231f20;
+  margin: 0;
+  overflow-wrap: break-word;
+}
+.gr-svc__title span {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #231f20;
+}
+.gr-svc__body {
+  padding: clamp(2.6rem, 7vh, 5rem) clamp(1.2rem, 5vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+.gr-svc__desc {
+  color: rgba(250, 249, 246, .88);
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.65;
+  max-width: 62ch;
+}
+.gr-svc__desc p { margin: 0 0 1.1em; }
+.gr-svc__cta {
+  display: inline-block;
+  width: fit-content;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: #ada78f;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(173, 167, 143, .5);
+  padding-bottom: .35rem;
+  transition: opacity .3s ease;
+}
+.gr-svc__cta:hover { opacity: .6; }
+.gr-svc__works {
+  padding: 0 clamp(1.2rem, 5vw, 4rem) clamp(3rem, 8vh, 6rem);
+}
+.gr-svc__works-title {
+  color: #faf9f6;
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.6vw, 2rem);
+  text-transform: uppercase;
+  margin: 0 0 1.8rem;
+}
+.gr-svc__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(1.2rem, 2.5vw, 2.2rem);
+}
+.gr-svc__card { text-decoration: none; display: block; }
+.gr-svc__thumb { aspect-ratio: 4 / 3; }
+.gr-svc__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.gr-svc__card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-top: .8rem;
+}
+.gr-svc__card-title { color: #faf9f6; margin: 0; font-size: 1.15rem; }
+.gr-svc__card-date {
+  color: rgba(250, 249, 246, .5);
+  font-size: .85rem;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+/* ---------- Riduzione del movimento ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .gr-reveal { opacity: 1; transform: none; transition: none; }
+  .gr-marquee__track { animation: none; }
+  .image-thumbnail .image-cover-full,
+  .grid-item .header-works,
+  .contact-form .w-button { transition: none; }
+}
