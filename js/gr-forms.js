@@ -67,7 +67,7 @@
           setLabel(button, 'Inviato');
         })
         .catch(function (err) {
-          show(err.message + ' Scrivici a info@gorah.com e ci pensiamo noi.', 'ko');
+          show(err.message + ' Scrivici a info@gorahstudio.com e ci pensiamo noi.', 'ko');
           button.disabled = false;
           setLabel(button, idle);
         });
