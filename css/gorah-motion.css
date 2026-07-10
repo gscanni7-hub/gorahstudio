@@ -342,6 +342,19 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   line-height: 1.05;
 }
 
+/* Le card della griglia entrano tutte insieme, senza scivolamento verticale:
+   con lo stagger le card della stessa riga si muovevano in tempi diversi
+   durante lo scroll e sembravano storte. Solo fade, nessuno spostamento. */
+.grid-item.gr-reveal,
+.grid-item-about.gr-reveal {
+  transform: none;
+  transition-delay: 0s !important;
+}
+
+/* Sezione clienti: altezza automatica. Con i 18 clienti il box a 384px
+   fissi traboccava e i nomi finivano sopra il footer. */
+.clients-collection-wrapper { height: auto !important; }
+
 /* ---------- Niente badge Webflow ---------- */
 .w-webflow-badge { display: none !important; }
 
