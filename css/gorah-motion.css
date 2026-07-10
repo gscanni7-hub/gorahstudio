@@ -318,6 +318,21 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   .copyrights { padding-top: 1rem; }
 }
 
+/* ---------- Fix overflow mobile della griglia lavori ----------
+   Le regole Webflow (#w-node / item-style="grande") estendono le card
+   su 2-3 colonne: quando la griglia scende a 1 colonna creano colonne
+   implicite fuori dallo schermo. Qui ogni card occupa l'intera riga. */
+@media (max-width: 991px) {
+  .grid-works > .grid-item,
+  .grid-works > div[item-style] {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+}
+
+/* ---------- Niente badge Webflow ---------- */
+.w-webflow-badge { display: none !important; }
+
 /* ---------- Riduzione del movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
   .gr-reveal { opacity: 1; transform: none; transition: none; }
