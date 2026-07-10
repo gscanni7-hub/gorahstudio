@@ -365,3 +365,7 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   .grid-item .header-works,
   .contact-form .w-button { transition: none; }
 }
+
+/* Anteprima con immagine intera (non tagliata): contain su sfondo scuro */
+.grid-works .image-thumbnail.gr-fit-contain { background: #231f20; }
+.grid-works .image-thumbnail.gr-fit-contain .image-cover-full { object-fit: contain !important; }
