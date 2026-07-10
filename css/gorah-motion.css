@@ -330,6 +330,18 @@ a.link-wrapper:hover .p-works { opacity: .55; }
   }
 }
 
+/* ---------- Card allineate: i titoli lunghi non spostano le immagini ----------
+   (DaGigione e Hostaria andavano su 3 righe e disallineavano la griglia) */
+.grid-works .flex-horizontal { align-items: start; }
+.grid-works .header-works {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.1em;
+  line-height: 1.05;
+}
+
 /* ---------- Niente badge Webflow ---------- */
 .w-webflow-badge { display: none !important; }
 
