@@ -449,74 +449,68 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
   .grid-works .services > .full-w-container > .services { row-gap: 0; }
 }
 
-/* ================= Pagina Websites (gr-w) =================
-   Superficie carta, testo nero, rosso raro. Il rosso #d94434 viene dai
-   biglietti da visita del brand, non e' un colore inventato. */
-.gr-w-page { background: #f5f3ef; }
+/* ================= Pagina Websites (gr-w) — versione scura, coerente col sito =================
+   Superficie nera del sito (#231f20), testo chiaro, accento rosso #d94434 preso dai
+   biglietti da visita del brand (mai l'oliva/oro). Struttura ordinata e numerata. */
+.gr-w-page { background: #231f20; }
 .gr-w {
-  --paper:#f5f3ef; --ink:#1a1717; --red:#d94434;
-  --line:rgba(26,23,23,.14); --muted:rgba(26,23,23,.56);
-  background:var(--paper); color:var(--ink);
+  --bg:#231f20; --ink:#f6f4ef; --red:#e0503f;
+  --line:rgba(246,244,239,.15); --muted:rgba(246,244,239,.6); --panel:#1c1918;
+  background:var(--bg); color:var(--ink);
 }
 
-/* header: la pagina alterna fondo chiaro e banda nera, e l'header e' fisso.
-   'difference' inverte logo e MENU rispetto a cio' che ci scorre sotto:
-   scuri sulla carta, chiari sul nero. Nessun JavaScript, nessuno stato da gestire. */
-.gr-w-page .header { mix-blend-mode: difference; backdrop-filter: none; -webkit-backdrop-filter: none; }
-.gr-w-page .header .menu-open,
-.gr-w-page .header .menu-close { color: #ffffff; }
+/* header e footer restano quelli nativi del sito (bianco su scuro): niente override */
 
-/* griglia e ritmo: due colonne, numero a sinistra, contenuto a destra */
 .gr-w__wrap { max-width:1140px; margin:0 auto; padding:0 clamp(20px,5vw,72px); }
-.gr-w section { padding: clamp(76px,10vw,152px) 0; }
+.gr-w section { padding: clamp(76px,10vw,148px) 0; }
 .gr-w__head { display:grid; grid-template-columns:80px 1fr; gap:0 clamp(20px,3vw,48px); align-items:start; margin-bottom:clamp(40px,5vw,72px); }
 .gr-w__num { font-size:13px; font-weight:700; letter-spacing:.12em; color:var(--red); margin:10px 0 0; font-variant-numeric:tabular-nums; }
 .gr-w__body { grid-column:2; }
 
+.gr-w h1, .gr-w h2, .gr-w h3, .gr-w summary { color:var(--ink); }
 .gr-w h1 { font-size:clamp(40px,6.6vw,96px); line-height:.98; letter-spacing:-.035em; font-weight:800; margin:0; }
 .gr-w h2 { font-size:clamp(28px,4vw,54px); line-height:1.02; letter-spacing:-.03em; font-weight:800; margin:0; }
 .gr-w h3 { font-size:19px; font-weight:700; letter-spacing:-.01em; margin:0 0 8px; }
-.gr-w p  { margin:0; }
-.gr-w__lede { color:var(--muted); font-size:clamp(17px,1.45vw,20px); line-height:1.55; max-width:56ch; margin-top:clamp(28px,3vw,44px); }
+.gr-w p { margin:0; }
+.gr-w__lede { color:var(--muted); font-size:clamp(17px,1.45vw,20px); line-height:1.55; max-width:56ch; margin-top:clamp(36px,3.6vw,56px); }
 
 /* hero */
 .gr-w__hero { padding-top:clamp(120px,14vw,190px); }
 .gr-w__word { display:block; width:clamp(200px,28vw,340px); height:auto; margin-bottom:clamp(36px,5vw,64px); }
 .gr-w__actions { margin-top:clamp(36px,4vw,56px); display:flex; align-items:center; gap:28px; flex-wrap:wrap; }
 
-/* bottoni */
+/* bottoni: pieno rosso, hover a contorno */
 .gr-w__btn { display:inline-flex; align-items:center; justify-content:center; min-height:52px;
-  background:var(--ink); color:var(--paper); font-weight:700; font-size:16px; padding:0 34px;
-  text-decoration:none; border:1px solid var(--ink); transition:background .2s cubic-bezier(.22,1,.36,1), color .2s, border-color .2s; }
-.gr-w__btn:hover { background:var(--red); border-color:var(--red); color:var(--paper); }
+  background:var(--red); color:#fff; font-weight:700; font-size:16px; padding:0 34px; text-decoration:none;
+  border:1px solid var(--red); transition:background .2s cubic-bezier(.22,1,.36,1), color .2s, border-color .2s; }
+.gr-w__btn:hover { background:transparent; color:var(--ink); border-color:var(--ink); }
 .gr-w__btn:focus-visible { outline:2px solid var(--red); outline-offset:3px; }
-.gr-w__btn--red { background:var(--red); border-color:var(--red); }
-.gr-w__btn--red:hover { background:var(--ink); border-color:var(--ink); }
 .gr-w__btn--quiet { background:transparent; color:var(--ink); border-color:var(--line); }
-.gr-w__btn--quiet:hover { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.gr-w__btn--quiet:hover { background:var(--ink); color:var(--bg); border-color:var(--ink); }
+.gr-w__btn--red { background:var(--red); border-color:var(--red); color:#fff; }
 .gr-w__link { color:var(--ink); text-decoration:none; font-weight:600; border-bottom:1px solid var(--line); padding-bottom:3px; transition:border-color .2s,color .2s; }
 .gr-w__link:hover { color:var(--red); border-color:var(--red); }
 
-/* banda nera: rottura di ritmo */
-.gr-w__dark { background:var(--ink); color:var(--paper); }
-.gr-w__dark .gr-w__num { color:var(--red); }
-.gr-w__statement { font-size:clamp(26px,3.6vw,50px); line-height:1.22; letter-spacing:-.025em; font-weight:600; max-width:20ch; }
+/* sezione "il punto": rottura di ritmo con bordi a filo e prova bordata */
+.gr-w__band { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+.gr-w__statement { font-size:clamp(26px,3.6vw,50px); line-height:1.22; letter-spacing:-.025em; font-weight:600; max-width:20ch; color:var(--ink); }
 .gr-w__statement em { font-style:normal; color:var(--red); }
-.gr-w__proof { margin-top:clamp(48px,6vw,84px); display:grid; grid-template-columns:1fr 1fr; gap:1px; background:rgba(245,243,239,.16); border:1px solid rgba(245,243,239,.16); }
-.gr-w__proof a { background:var(--ink); color:var(--paper); text-decoration:none; padding:30px 28px; transition:background .2s; }
-.gr-w__proof a:hover { background:#241f1f; }
+.gr-w__proof { margin-top:clamp(48px,6vw,84px); display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line); border-left:1px solid var(--line); }
+.gr-w__proof a { text-decoration:none; color:var(--ink); padding:30px 28px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); transition:background .2s; }
+.gr-w__proof a:hover { background:var(--panel); }
 .gr-w__proof strong { display:block; font-size:18px; font-weight:700; margin-bottom:6px; }
-.gr-w__proof span { color:rgba(245,243,239,.56); font-size:14px; }
+.gr-w__proof span { color:var(--muted); font-size:14px; }
 
 /* listino */
 .gr-w__plans { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line); }
 .gr-w__plan { padding:40px 30px 36px; border-bottom:1px solid var(--line); border-right:1px solid var(--line); display:flex; flex-direction:column; }
 .gr-w__plan:first-child { border-left:1px solid var(--line); }
+.gr-w__plan--hot { background:var(--panel); }
 .gr-w__tag { font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--red); min-height:15px; margin-bottom:14px; font-weight:700; }
 .gr-w__price { font-size:clamp(40px,4.4vw,64px); font-weight:800; letter-spacing:-.04em; color:var(--red); margin:14px 0 2px; line-height:1; }
 .gr-w__when { color:var(--muted); font-size:14px; margin-bottom:28px; }
 .gr-w__plan ul { list-style:none; margin:0 0 32px; padding:0; flex:1; }
-.gr-w__plan li { padding:11px 0; border-top:1px solid var(--line); font-size:15px; line-height:1.4; }
+.gr-w__plan li { padding:11px 0; border-top:1px solid var(--line); font-size:15px; line-height:1.4; color:var(--ink); }
 .gr-w__plan li:first-child { border-top:0; }
 .gr-w__care { border:1px solid var(--line); border-top:0; padding:26px 30px; display:flex; gap:14px; flex-wrap:wrap; align-items:baseline; color:var(--muted); font-size:15px; }
 .gr-w__care strong { color:var(--ink); font-weight:700; }
@@ -526,7 +520,7 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
 .gr-w__step { border-top:2px solid var(--ink); padding-top:18px; }
 .gr-w__step .gr-w__n { font-size:12px; font-weight:700; letter-spacing:.14em; color:var(--red); margin-bottom:12px; }
 .gr-w__step p { color:var(--muted); font-size:15px; line-height:1.55; }
-.gr-w__note { margin-top:clamp(44px,5vw,72px); font-size:clamp(18px,2vw,26px); font-weight:700; letter-spacing:-.015em; }
+.gr-w__note { margin-top:clamp(44px,5vw,72px); font-size:clamp(18px,2vw,26px); font-weight:700; letter-spacing:-.015em; color:var(--ink); }
 .gr-w__note em { font-style:normal; color:var(--muted); }
 
 /* form anteprima */
@@ -534,13 +528,11 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
 .gr-w__field { display:flex; flex-direction:column; }
 .gr-w__field--full { grid-column:1 / -1; }
 .gr-w__form label { display:block !important; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; font-weight:700; }
-.gr-w__form input { background:transparent; border:0; border-bottom:1px solid var(--line); color:var(--ink);
-  padding:12px 2px; font-size:17px; font-family:inherit; }
-.gr-w__form input::placeholder { color:rgba(26,23,23,.32); }
+.gr-w__form input { background:transparent; border:0; border-bottom:1px solid var(--line); color:var(--ink); padding:12px 2px; font-size:17px; font-family:inherit; }
+.gr-w__form input::placeholder { color:rgba(246,244,239,.34); }
 .gr-w__form input:focus { outline:0; border-bottom-color:var(--red); }
-.gr-w__form button { grid-column:1 / -1; justify-self:start; min-height:52px; background:var(--red); color:var(--paper);
-  border:1px solid var(--red); font:700 16px/1 Sora,sans-serif; padding:0 34px; cursor:pointer; transition:background .2s,border-color .2s; }
-.gr-w__form button:hover { background:var(--ink); border-color:var(--ink); }
+.gr-w__form button { grid-column:1 / -1; justify-self:start; min-height:52px; background:var(--red); color:#fff; border:1px solid var(--red); font:700 16px/1 Sora,sans-serif; padding:0 34px; cursor:pointer; transition:background .2s,color .2s,border-color .2s; }
+.gr-w__form button:hover { background:transparent; color:var(--ink); border-color:var(--ink); }
 .gr-w__privacy { grid-column:1 / -1; font-size:13px; color:var(--muted); }
 .gr-w__form .gr-status { grid-column:1 / -1; padding-top:14px; border-top:1px solid var(--line); }
 .gr-w__form .gr-status.is-ok { color:var(--ink); }
@@ -548,15 +540,13 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
 /* faq */
 .gr-w details { border-top:1px solid var(--line); }
 .gr-w details:last-of-type { border-bottom:1px solid var(--line); }
-.gr-w summary { cursor:pointer; padding:26px 0; font-weight:700; font-size:18px; list-style:none;
-  display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:44px; }
+.gr-w summary { cursor:pointer; padding:26px 0; font-weight:700; font-size:18px; list-style:none; display:flex; justify-content:space-between; align-items:center; gap:20px; min-height:44px; }
 .gr-w summary::-webkit-details-marker { display:none; }
 .gr-w summary::after { content:"+"; color:var(--red); font-size:26px; font-weight:400; line-height:1; }
 .gr-w details[open] summary::after { content:"\2013"; }
 .gr-w details p { color:var(--muted); padding:0 0 26px; max-width:70ch; line-height:1.62; }
 .gr-w summary:focus-visible { outline:2px solid var(--red); outline-offset:4px; }
 
-/* chiusura */
 .gr-w__end h2 { max-width:16ch; }
 .gr-w__end .gr-w__btn { margin-top:clamp(32px,4vw,48px); }
 
@@ -571,17 +561,3 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
   .gr-w__form { grid-template-columns:1fr; }
 }
 @media (max-width:520px) { .gr-w__steps { grid-template-columns:1fr; } }
-
-/* Il CSS Webflow colora h1/h2/h3/li di bianco (sito scuro): su carta sparirebbero.
-   Li fissiamo esplicitamente, e li riportiamo chiari dentro la banda nera. */
-.gr-w h1, .gr-w h2, .gr-w h3, .gr-w summary { color: var(--ink); }
-.gr-w__plan li, .gr-w__note, .gr-w__care strong { color: var(--ink); }
-.gr-w__dark h1, .gr-w__dark h2, .gr-w__dark h3, .gr-w__dark p { color: var(--paper); }
-.gr-w__dark .gr-w__statement em { color: var(--red); }
-.gr-w__lede { margin-top: clamp(36px, 3.6vw, 56px) !important; }
-
-/* Il footer e' bianco-su-scuro: su questa pagina chiara serve la sua base scura. */
-.gr-w-page .footer { background: var(--ink, #1a1717); padding: clamp(56px,7vw,96px) clamp(20px,5vw,72px); }
-.gr-w-page .footer,
-.gr-w-page .footer a,
-.gr-w-page .footer .white-p { color: #f5f3ef; }
