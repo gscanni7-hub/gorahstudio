@@ -485,3 +485,7 @@ a.link-wrapper:hover .p-works { opacity: .55; }
 }
 @media (max-width: 520px) { .gr-web__steps { grid-template-columns:1fr; } }
 .gr-web__form label { display:block !important; }
+.gr-web__status { grid-column:1 / -1; margin:0; font-size:15px; font-weight:600; padding:14px 0 0; border-top:1px solid rgba(35,31,32,.25); }
+.gr-web__status.is-ok { color:var(--dark); }
+.gr-web__status.is-ko { color:#7d1f1f; }
+.gr-web__form button[disabled] { opacity:.6; cursor:default; }
