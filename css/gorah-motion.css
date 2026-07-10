@@ -489,3 +489,18 @@ a.link-wrapper:hover .p-works { opacity: .55; }
 .gr-web__status.is-ok { color:var(--dark); }
 .gr-web__status.is-ko { color:#7d1f1f; }
 .gr-web__form button[disabled] { opacity:.6; cursor:default; }
+
+/* Stato invio form */
+.gr-status { margin:12px 0 0; font-size:15px; font-weight:600; }
+.gr-status.is-ok { color:inherit; }
+.gr-status.is-ko { color:#7d1f1f; }
+.gr-web__form .gr-status { grid-column:1 / -1; padding-top:14px; border-top:1px solid rgba(35,31,32,.25); }
+form [type="submit"][disabled] { opacity:.6; cursor:default; }
+
+/* Contatti: le label esistono ma erano display:none, quindi invisibili anche agli screen reader.
+   Le rendiamo accessibili senza toccare la grafica (i placeholder restano). */
+.form-field label {
+  display:block !important; position:absolute; width:1px; height:1px;
+  margin:-1px; padding:0; overflow:hidden; white-space:nowrap;
+  clip:rect(0 0 0 0); clip-path:inset(50%); border:0;
+}
