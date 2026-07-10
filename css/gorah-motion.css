@@ -369,3 +369,15 @@ a.link-wrapper:hover .p-works { opacity: .55; }
 /* Anteprima con immagine intera (non tagliata): contain su sfondo scuro */
 .grid-works .image-thumbnail.gr-fit-contain { background: #231f20; }
 .grid-works .image-thumbnail.gr-fit-contain .image-cover-full { object-fit: contain !important; }
+
+/* Anteprima intera con sfondo sfocato della stessa foto (riempie senza bande morte) */
+.grid-works .image-thumbnail.gr-fit-blur { position: relative; overflow: hidden; }
+.grid-works .image-thumbnail.gr-fit-blur .gr-fit-blur__bg {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; filter: blur(22px) brightness(.72) saturate(1.05);
+  transform: scale(1.18); z-index: 0;
+}
+.grid-works .image-thumbnail.gr-fit-blur .gr-fit-blur__fg {
+  position: relative; z-index: 1; width: 100%; height: 100%;
+  object-fit: contain !important;
+}
