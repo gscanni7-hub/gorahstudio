@@ -504,3 +504,56 @@ form [type="submit"][disabled] { opacity:.6; cursor:default; }
   margin:-1px; padding:0; overflow:hidden; white-space:nowrap;
   clip:rect(0 0 0 0); clip-path:inset(50%); border:0;
 }
+
+/* ============ Raggruppamento delle card (legge di prossimità) ============
+   Prima: titolo-immagine 16px, immagine-tag 16px, card-card 32px.
+   Il titolo era quasi equidistante dalla sua foto e dai tag della card sopra,
+   quindi si leggeva come didascalia del progetto sbagliato. */
+.grid-works { row-gap: clamp(56px, 8vw, 88px) !important; }
+.grid-works > .grid-item { display: flex; flex-direction: column; gap: 8px; }
+.grid-works > .grid-item > .services { margin-top: 2px; }
+
+/* Servizi: le voci senza pagina non devono fingersi link */
+.gr-svc-static { cursor: default; opacity: .72; }
+
+/* ============ Contatti su mobile ============
+   Il campo Nome finiva interamente sotto l'header fisso (alto 80px) e la pagina
+   non scorreva, quindi era invisibile. La banda oliva col titolo era mozzata. */
+@media (max-width: 767px) {
+  /* il form partiva sotto l'header fisso (80px) */
+  .contact-wrapper { padding-top: 96px; }
+  /* email e telefono stavano su una riga da 392px in un viewport da 390: il numero veniva tagliato */
+  .link-section { flex-wrap: wrap; }
+  a[href^="tel:"] { white-space: nowrap; }
+  /* la banda oliva copriva i 2/3 e tagliava la parola a meta': le lettere piene bianche
+     finivano sull'oliva. Su mobile lo sfondo resta scuro, cosi' la scritta si legge tutta. */
+  .background > ._w-50.index-1 { background-color: transparent; }
+}
+
+/* email e telefono a sinistra come le icone social, non centrati */
+@media (max-width: 767px) {
+  .link-section:has(a[href^="tel:"]) { justify-content: flex-start; align-items: flex-start; row-gap: 10px; }
+}
+
+/* ============ Bersagli tattili ============
+   Su touch il minimo raccomandato e' 44x44px. Tag delle card, link del footer,
+   email, telefono, icone social e voci servizi erano alti 20-24px.
+   Applicato solo a puntatori grossolani: il desktop non cambia. */
+@media (pointer: coarse) {
+  .grid-works .services a.link-wrapper,
+  .footer .link-section a.link-p,
+  .services-wrapper a.header-4xs,
+  a[href^="mailto:"],
+  a[href^="tel:"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .icon-footer,
+  .contact-wrapper ~ * .icon-footer {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 44px; min-height: 44px;
+  }
+  /* i tag stanno su piu' righe: compensiamo l'altezza in piu' stringendo il passo */
+  .grid-works .services > .full-w-container > .services { row-gap: 0; }
+}
